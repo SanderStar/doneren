@@ -11,35 +11,58 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Doneren</h1>
+        <div class="container">
+            <h1>Doneren</h1>
+        </div>
 
-        <div id="doeldropdown" class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownDoelMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Doel
-            </button>
-            <div class="dropdown-menu doel" aria-labelledby="dropdownDoelMenuButton">
-                <a class="dropdown-item" href="#">Kerk</a>
-                <a class="dropdown-item" href="#">Diaconie</a>
-                <a class="dropdown-item" href="#">Emeritering</a>
-                <a class="dropdown-item" href="#">Overig</a>
+        <div class="container">
+            <div class="row">
+                <h3>Stap 1</h3>
+                <input id="datumpicker" type="date"></input>
+
+                <h3>Stap 2</h3>
+                <div id="doeldropdown" class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownDoelMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Doel
+                    </button>
+                    <div class="dropdown-menu doel" aria-labelledby="dropdownDoelMenuButton">
+                        <a class="dropdown-item" href="#">Kerk</a>
+                        <a class="dropdown-item" href="#">Diaconie</a>
+                        <a class="dropdown-item" href="#">Emeritering</a>
+                        <a class="dropdown-item" href="#">Overig</a>
+                    </div>
+                </div>
+
+                <h3>Stap 3</h3>
+                <div id="bedragdropdown" class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownBedragMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bedrag
+                    </button>
+                    <div class="dropdown-menu bedrag" aria-labelledby="dropdownBedragMenuButton">
+                        <a class="dropdown-item bedrag" href="#"><img alt="1" src="./img/1euro.gif" width="40" height="40"></img></a>
+                        <a class="dropdown-item bedrag" href="#"><img alt="2" src="./img/2euro.gif" width="40" height="40"></img></a>
+                        <a class="dropdown-item bedrag" href="#"><img alt="5" src="./img/5 euro.jpg" width="80" height="40"></img></a>
+                        <a class="dropdown-item bedrag" href="#"><img alt="10" src="./img/10 euro.jpg" width="80" height="40"></img></a>
+                    </div>
+                </div>
+
+                <h3>Stap 4</h3>
+                <button type="submit" class="btn btn-primary">Bevestig</button>
             </div>
         </div>
 
-        <div id="bedragdropdown" class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownBedragMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Bedrag
-            </button>
-            <div class="dropdown-menu bedrag" aria-labelledby="dropdownBedragMenuButton">
-                <a class="dropdown-item bedrag" href="#"><img alt="1" src="./img/1euro.gif" width="40" height="40"></img></a>
-                <a class="dropdown-item bedrag" href="#"><img alt="2" src="./img/2euro.gif" width="40" height="40"></img></a>
-                <a class="dropdown-item bedrag" href="#"><img alt="5" src="./img/5 euro.jpg" width="80" height="40"></img></a>
-                <a class="dropdown-item bedrag" href="#"><img alt="10" src="./img/10 euro.jpg" width="80" height="40"></img></a>
-            </div>
-        </div>
+        <br>
+        <br>
 
         <div class="container">
             <form class="form-horizontal" action="POST">
                 <fieldset>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="datum">Datum</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="datum" type="text" placeholder="Geef datum"/>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="doel">Doel</label>
                         <div class="col-sm-10">

@@ -1,8 +1,12 @@
 $(function () {
     // Keuze voor doel
-    $(".dropdown-menu a").click(function (event) {
-        console.log($(this).parent);
+    $(".doel a").click(function (event) {
         var selText = $(this).text();
         $("#doel").val(selText);
+    });
+
+    $(".bedrag a").click(function (event) {
+        var selText = $(this).find("img").prop("alt")
+        $("#bedrag").val(selText);
     });
 });        

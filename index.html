@@ -9,20 +9,29 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="./js/doneren.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     </head>
     <body>
         <div class="container">
             <h1>Doneren</h1>
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Stap 1</th>
                         <th>Stap 2</th>
+                        <th></th>
                         <th>Stap 3</th>
+                        <th>Stap 4</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td>
+                            <i id="donatievalid" class="fas fa-thumbs-up" style="color:green"></i>
+                            <i id="donatienotvalid" class="fas fa-thumbs-down" style="color:red"></i>
+                        </td>
                         <td>
                             <input id="datumpicker" type="date"></input>
                         </td>
@@ -40,6 +49,12 @@
                             </div>
                         </td>
                         <td>
+                            <input id="inpdoel" type="text" disabled/>
+                        </td>
+                        <td>
+                            <input id="inpdoelomschrijving" type="text" placeholder="Geef omschrijving doel"/>
+                        </td>
+                        <td>
                             <div id="bedragdropdown" class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownBedragMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Bedrag
@@ -52,6 +67,9 @@
                                 </div>
                             </div>
                         </td>
+                        <td>
+                            <img id="imgbedrag" alt="" src="" width="20" height="20"></img>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -59,35 +77,11 @@
             <br>
             <br>
 
-            <form class="form-horizontal" action="POST">
+            <form class="form-horizontal">
                 <fieldset>
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="datum">Datum</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" id="datum" type="text" placeholder="Geef datum"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="doel">Doel</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" id="doel" type="text" placeholder="Geef doel"/>
-                        </div>
-                    </div>
-                    <div id="doelomschrijving" class="form-group">
-                        <label class="control-label col-sm-2" for="omschrijving">Omschrijving</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" id="omschrijving" type="text" placeholder="Geef omschrijving doel"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="bedrag">Bedrag (euro)</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" id="bedrag" type="text" placeholder="Geef bedrag"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Geef</button>
+                            <button id="btntoevoegen" type="submit" class="btn btn-primary">Toevoegen</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
                         </div>
                     </div>
@@ -95,27 +89,35 @@
             </form>
 
             <br>
+            <span class="glyphicon glyphicon-ok"></span>
+
             <br>
             
-            <table>
+            <table id="tbldonaties" class="table">
                 <thead>
                     <th>Nr</th>
+                    <th>Datum</th>
                     <th>Doel</th>
                     <th>Omschrijving</th>
                     <th>Bedrag</th>
+                    <th>Actie</th>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
+                        <td>14-12-2018</td>
                         <td>Kerk</td>
                         <td></td>
                         <td>2</td>
+                        <td><button id="1">1</button></td>
                     </tr>
                     <tr>
                         <td>2</td>
+                        <td>14-12-2018</td>
                         <td>Diaconie</td>
                         <td></td>
                         <td>1</td>
+                        <td><button id="2">2</button></td>
                     </tr>
                     </tbody>
             </table>

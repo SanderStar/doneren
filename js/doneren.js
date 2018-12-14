@@ -1,17 +1,30 @@
 $(function () {
 
     function init() {
-        // TODO zet huidige datum $("#datumpicker").val(new Date());
+        reset();
+    }
+
+    function reset() {
+        var date = new Date();
+        var d = date.getDate();
+        var m =  date.getMonth();
+        // JavaScript months are 0-11
+        m += 1;
+        var y = date.getFullYear();
+
+        $("#datumpicker").val(y + "-" + m + "-" + d);
+        $("#inpdoel").val("");
+        $("#imgbedrag").prop("alt", "");
+        $("#imgbedrag").prop("src", "");
+        $("#inpdoelomschrijving").val("");
         $("#inpdoelomschrijving").prop("disabled", true);
+
         setValid();
     }
 
     function valid() {
         var datum = $("#datumpicker").val();
         var doel = $("#inpdoel").val();
-        if (doel === "Overig") {
-
-        }
         var bedrag = $("#imgbedrag").prop("alt");
 
         var valid = false;
@@ -81,6 +94,10 @@ $(function () {
     });
 
 
+    $("#btnreset").click( function( event) {
+        reset();
+    });
+
     $("#btntoevoegen").click(function (event) {
 
         // Lengte tabel rijen zonder header rij
@@ -138,6 +155,8 @@ $(function () {
     
         enableButtons(positie);
         */
+
+        reset();
     });
 
 

@@ -30,9 +30,11 @@ $(function () {
 
     function setValid() {
         if (valid()) {
+            $("#btntoevoegen").removeAttr("disabled");
             $("#donatievalid").css("display", "");
             $("#donatienotvalid").css("display", "none");
         } else {
+            $("#btntoevoegen").prop("disabled", true);
             $("#donatievalid").css("display", "none");
             $("#donatienotvalid").css("display", "");
         }

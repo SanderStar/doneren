@@ -1,8 +1,50 @@
 $(function () {
 
+    var data = [{id: 1, volgnr: 1, datum: "19-12-2018", doel: "Test1"},
+        {id: 2, volgnr: 2, datum: "19-12-2018", doel: "Test2"}];
+
     function init() {
+        console.log(data);
         reset();
+
+        collecten(data);
     }
+
+    function collecten(data) {
+
+        console.log(data);
+
+        // Lengte tabel rijen zonder header rij
+        //var rows = $("#tblcollecten").find("tbody").find("tr").length;
+        var lastRow = $("#tblcollecten").find("tbody").find("tr:last");
+
+
+        for (var i = 0; i < data.length; i++) {
+            var newRow = lastRow.clone();
+
+            // 1e cell
+            var cell = $(newRow).find("td")[0];
+            // Zet nieuwe rij nummer
+            $(cell).text(data[i].volgnr);
+
+            // 2e cell
+            cell = $(newRow).find("td")[1];
+            // TODO juiste format van datum
+            $(cell).text(data[i].datum);
+
+            // 3e cell
+            cell = $(newRow).find("td")[2];
+            $(cell).text(data[i].doel);
+
+            // 4e cell
+            cell = $(newRow).find("td")[3];
+            $(cell).text(data[i].bedrag);
+
+            lastRow.after(newRow);
+        }
+        lastRow.remove();
+    }
+
 
     function reset() {
         var date = new Date();
